@@ -50,6 +50,7 @@ body,html{
 }
 
 .header__nav{
+  float: right;
   justify-content: end;
   margin-right: 5%;
 }
@@ -1147,6 +1148,10 @@ a{
   .contentAdding{
     font-size: 18px;
     text-align: center;
+  }
+
+  .header__nav{
+    margin-right: 2.5%;
   }
 
 }

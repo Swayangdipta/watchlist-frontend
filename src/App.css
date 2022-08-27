@@ -1067,6 +1067,7 @@ a{
   .FullContentView__info__container{
     top: 300px;
     min-height: 480px;
+    padding-bottom: 30px;
   }
   .FullContentView__info__title{
     font-size: 16px;
@@ -1095,6 +1096,53 @@ a{
   .totalContents{
     font-size: 18px;
   }
+
+  .branding{
+    font-size: 20px;
+  }
+
+  .text_20{
+    font-size: 16px;
+  }
+
+  .FullContentView__wrapper,.search__container{
+    width: 95%;
+  }
+
+  .search__container{
+    left: 2.5%;
+  }
+
+  .closeSearch{
+    right: 0;
+  }
+
+  .result__items{
+    width: 95%;
+  }
+
+  .search_overview{
+    width: 150px;
+  }
+
+  .add_content{
+    right: 10px;
+  }
+
+  .search_title{
+    width: 150px;
+    font-size: 14px;
+  }
+
+  .result__item{
+    height: max-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .search_info{
+    justify-content: center;
+  }
 }
 @media only screen and (max-width: 580px){
   .allContents__wrapper{
@@ -1118,6 +1166,6 @@ a{
   }
 
   .branding{
-    font-size: 1.4em;
+    font-size: 16px;
   }
 }

@@ -22,6 +22,7 @@ export const loginUser = (data,next) => {
         next(response.data)
         return response.data;
     }).catch(e => {
+        console.log(e);
         next(e.response.data)
     })
 }

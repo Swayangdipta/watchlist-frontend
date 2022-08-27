@@ -107,7 +107,7 @@ const Auth = ({type="login"}) => {
 
     if(internalFormType === 'login'){
       loginUser(auth,(data)=>{
-        if(data && !data.error){
+        if(data && !data.error && data.name !== 'AxiosError'){
             toast.success("Authentication Success!",{theme: 'dark'});
             authenticate(data)
             setIsRedirected(true)

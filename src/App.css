@@ -1144,6 +1144,11 @@ a{
     justify-content: center;
   }
 
+  .contentAdding{
+    font-size: 18px;
+    text-align: center;
+  }
+
 }
 @media only screen and (max-width: 580px){
   .allContents__wrapper{

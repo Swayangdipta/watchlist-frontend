@@ -111,8 +111,10 @@ const Auth = ({type="login"}) => {
             toast.success("Authentication Success!",{theme: 'dark'});
             authenticate(data)
             setIsRedirected(true)
+            setIsLoading(false)
         }else{
             toast.error(data?.error,{theme: 'dark'});
+            setIsLoading(false)
         }
       })
     }else{
@@ -120,13 +122,13 @@ const Auth = ({type="login"}) => {
         if(data && !data.error){
             toast.success("Registration Success. Login now!",{theme: 'dark'});
             setInternalFormType('login')
+            setIsLoading(false)
         }else{
             toast.error(data?.error,{theme: 'dark'});
+            setIsLoading(false)
         }
       })
     }
-
-    setIsLoading(false)
 }
 
 const handleChange = inp => e => {

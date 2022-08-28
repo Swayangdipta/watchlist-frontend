@@ -53,7 +53,7 @@ const Auth = ({type="login"}) => {
         }} style={{
           fontSize: '0.8em',
           textDecoration: 'underline',
-          color: 'blue',
+          color: '#00ffad',
           cursor: "pointer"
         }} className="content__label">Don't have an account? Register.</p>
     </>
@@ -82,7 +82,7 @@ const Auth = ({type="login"}) => {
       }} style={{
           fontSize: '0.8em',
           textDecoration: 'underline',
-          color: 'blue',
+          color: '#00ffad',
           cursor: "pointer"
         }} className="content__label">Already have an account? Login.</p>
     </>

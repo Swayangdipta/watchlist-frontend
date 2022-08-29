@@ -1,5 +1,4 @@
 import React, { useEffect, useContext,useState } from 'react'
-import { toast } from 'react-toastify'
 import { isAuthenticated } from '../Auth/helper/authApiCalls'
 import ContentCard from '../Content/ContentCard'
 import {SearchContext} from '../SearchContext'

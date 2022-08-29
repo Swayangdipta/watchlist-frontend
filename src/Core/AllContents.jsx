@@ -48,7 +48,9 @@ const AllContents = () => {
   return (
     <div className="allContents__wrapper">
       {
-        contents.length === 0 && (
+        contentsInfo.length === 0 ? (
+            <div className="AllContents__loading">Add Something</div>
+        ) : contents.length === 0 && (
           <div className="AllContents__loading">Loading...</div>
         )
       }

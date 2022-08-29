@@ -8,18 +8,21 @@ import Auth from './Auth/Auth'
 import { ContentProvider } from './ContentContext';
 import { SearchProvider } from './SearchContext';
 import Profile from './Dashboard/Profile';
+import { SeparatedProvider } from './SeparatedContext';
 
 function App() {
   return (
     <Router>
       <ContentProvider>
       <SearchProvider>
+      <SeparatedProvider >
       <ToastContainer />
       <Routes>
         <Route path='/' element={<Auth />} />
         <Route path='/home' element={<Base/>} />
         <Route path='/profile' element={<Profile/>} />
       </Routes>
+      </SeparatedProvider>
       </SearchProvider>
       </ContentProvider>
     </Router>

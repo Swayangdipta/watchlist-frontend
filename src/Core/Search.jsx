@@ -68,7 +68,6 @@ const Search = ({setOpenSearch=f=>f}) => {
             content: elm,
             model: data
         }
-        console.log(newContent);
         setContents(prevContents => {
             return [...prevContents,newContent]
         })

@@ -36,6 +36,7 @@ const AllContents = () => {
               model: elm,
               content: data
             }
+            console.log(toBeAddedContent);
             setContents(prevContents => {
               return [...prevContents,toBeAddedContent]
             })

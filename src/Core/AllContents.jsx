@@ -36,7 +36,6 @@ const AllContents = () => {
               model: elm,
               content: data
             }
-            console.log(toBeAddedContent);
             setContents(prevContents => {
               return [...prevContents,toBeAddedContent]
             })
@@ -49,7 +48,7 @@ const AllContents = () => {
   return (
     <div className="allContents__wrapper">
       {
-        contentsInfo.length === 0 ? (
+        contentsInfo.length === 0 && contents.length === 0 ? (
             <div className="AllContents__loading">Add Something</div>
         ) : contents.length === 0 && (
           <div className="AllContents__loading">Loading...</div>

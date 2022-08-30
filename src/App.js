@@ -9,6 +9,8 @@ import { ContentProvider } from './ContentContext';
 import { SearchProvider } from './SearchContext';
 import Profile from './Dashboard/Profile';
 import { SeparatedProvider } from './SeparatedContext';
+import NotFound from './Core/NotFound';
+import ViewUser from './Core/ViewUser';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path='/' element={<Auth />} />
         <Route path='/home' element={<Base/>} />
         <Route path='/profile' element={<Profile/>} />
+        <Route path='/user/:userId' element={<ViewUser/>} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       </SeparatedProvider>
       </SearchProvider>

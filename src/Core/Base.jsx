@@ -8,6 +8,8 @@ import Header from './Header'
 import InternalSearchContents from './InternalSearchContents';
 import ShowSeparated from './ShowSeparated';
 import SubHeader from './SubHeader';
+import { isAuthenticated } from '../Auth/helper/authApiCalls';
+import { Navigate } from 'react-router-dom';
 
 const Base = () => {
   const [whichToShow,setWhichToShow] = useState("all")
@@ -39,15 +41,17 @@ const Base = () => {
     }
   },[search])
   return (
-    <div>
-        <Header/>
-        <SubHeader whichToShow={setWhichToShow} />
-        {
-          whichToShow === "all" ? (<AllContents />) : 
-          whichToShow === "search" ? (<InternalSearchContents />) : (<ShowSeparated  />)
-        }
-        <ContentCreateButton />
-    </div>
+    isAuthenticated() ? (
+      <div>
+          <Header/>
+          <SubHeader whichToShow={setWhichToShow} />
+          {
+            whichToShow === "all" ? (<AllContents />) : 
+            whichToShow === "search" ? (<InternalSearchContents />) : (<ShowSeparated  />)
+          }
+          <ContentCreateButton />
+      </div>      
+    ) : (<Navigate to="/" />)
   )
 }
 

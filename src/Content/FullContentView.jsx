@@ -57,7 +57,6 @@ const FullContentView = ({content,model,status="Completed",setOpen=f=>f,reloadCo
         removeContent(model._id,user._id,token,(data)=>{
             if(data?.response?.data?.error){
                 toast.error("Faild to remove content!",{theme: 'dark'});
-                console.log(data);
                 setIsProcessing(false)
             }else{
                 toast.success("Content removed.",{theme: 'dark'})

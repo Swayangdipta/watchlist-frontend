@@ -77,7 +77,7 @@ const Search = ({setOpenSearch=f=>f}) => {
         <div className='closeSearch'><AiFillCloseCircle className='closeSearchIcon' onClick={e=>setOpenSearch(false)} /></div>
         <div className='search__container'>
             {
-                isLoading && (<div className='contentAdding'>Adding to you collection...</div>)
+                isLoading && (<div className='contentAdding'>Adding to your collection...</div>)
             }
             <form className='searchForm'>
                 <input autoFocus value={value} onChange={handleSearch} type="text" name="search" id="search" className='search_input' placeholder='Search tv,movie...' />

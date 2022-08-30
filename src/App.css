@@ -658,15 +658,26 @@ a{
 }
 
 .profile__card{
-  width: 330px;
-  height: max-content;
+  width: 90vw;
+  height: 70px;
   padding: 10px;
-  position: absolute;
-  top: 80px;
-  left: 20px;
-  background: #222831;
+  margin: auto;
+  margin-top: 40px;
+  background-color: #0b0c0c;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23606060' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
   border-radius: 5px;
-  box-shadow: 3px 3px 9px #222831, -3px -3px 9px #3f4a5a;
+  box-shadow: 3px 3px 9px #000000b0, -3px -3px 9px #292929;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile__info{
+  display: flex;
+  gap: 0px 30px;
+  flex-wrap: wrap;
+  height: 100%;
+  align-items: center;
 }
 
 .profile__card__item{
@@ -677,16 +688,44 @@ a{
   word-break: break-all;
 }
 
+.profile__btns{
+  width: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
 .profile__delete__btn{
-  width: 330px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin: auto;
-  background: red;
+  background: rgb(255, 38, 38);
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  color: #ffffff;
+  transition: ease-in-out 0.3s;
 }
+
+.profile__delete__btn:hover{
+  background: rgb(206, 0, 0);
+  transition: ease-in-out 0.3s;
+}
+
+.profile__edit__btn{
+  background: #3a30a5;
+}
+
+.profile__edit__btn:hover{
+  background: #1702ff;
+  transition: ease-in-out 0.3s;
+}
+
 
 .flexIt{
   display: flex;
@@ -1040,6 +1079,7 @@ a{
   margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 10px;
 }
 
@@ -1055,6 +1095,14 @@ a{
   flex-direction: column;
   position: relative;
   top: 0;
+}
+
+.watchtimeEp{
+  background-color: #02b290;
+}
+
+.watchtimeVw{
+  background-color: #9c27b0;
 }
 
 .watchTime__title{
@@ -1095,6 +1143,14 @@ a{
   border-radius: 40%;
 }
 
+.watchTimeCircleEp::after{
+  background: linear-gradient(#F7CD2E,#E03B8B);
+}
+
+.watchTimeCircleVw::after{
+  background: linear-gradient(#12B0E8,#120E43);
+}
+
 .watchTime__times{
   display: flex;
   font-size: 26px;
@@ -1103,12 +1159,78 @@ a{
   color: #29ff89;
 }
 
+.watchTime__episodes{
+  color: #ffffff;
+}
+
+.profile__contents{
+  width: 90%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.profile__section__title{
+  width: 100%;
+  background: #000;
+  height: 60px;
+  border-radius: 5px;
+  color: #00ffc3;
+  display: flex;
+  align-items: center;
+  text-indent: 20px;
+}
+
+.profile__contents__wrapper{
+  width: 100%;
+  height: max-content;
+  padding-bottom: 30px;
+  margin-top: 20px;
+}
+
+.profile__content{
+  width: 100%;
+  height: 40px;
+  background: rgb(19, 19, 19);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #49d2d9;
+}
+
+.profile__content__title{
+  margin-left: 20px;
+  font-weight: 400;
+}
+
+.profile__content__btn{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgb(255, 43, 43);
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #000;
+  font-size: 20px;
+  transition: ease-in-out 300ms;
+  cursor: pointer;
+}
+
+.profile__content__btn:hover{
+  background: rgb(255, 0, 0);
+  transition: ease-in-out 300ms;
+}
+
 @keyframes spin {
   0%{
     transform: translateY(0) rotate(0) ;
   }
   100%{
-    transform: translateY(-50%) rotate(520deg);
+    transform: translateY(-45%) rotate(450deg);
   }
 }
 @keyframes showPercentage {
@@ -1151,6 +1273,26 @@ a{
   .FullContentView__info__title{
     font-size: 24px;
   }
+
+  .watchtime{
+    width: 200px;
+  }
+
+  .watchTimeCircle{
+    width: 70px;
+    height: 70px;
+  }
+
+  .watchTime__title{
+    width: 180px;
+    font-size: 16px;
+    top: 5px;
+  }
+
+  .watchTime__times{
+    font-size: 22px;
+  }
+  
 }
 @media only screen and (max-width: 750px){
   .FullContentView__wrapper{
@@ -1281,6 +1423,10 @@ a{
     margin-right: 2.5%;
   }
 
+  .analytics{
+    justify-content: space-evenly;
+  }
+
 }
 @media only screen and (max-width: 580px){
   .allContents__wrapper{
@@ -1327,5 +1473,49 @@ a{
 
   .search__icon_internal{
     font-size: 22px;
+  }
+
+  .watchtime{
+    width: 90%;
+  }
+
+  .watchTimeCircle{
+    width: 100px;
+    height: 100px;
+  }
+
+  .watchTime__title{
+    width: 90%
+  }
+
+  .profile__card{
+    min-height: 150px;
+    height: max-content;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .profile__btns{
+    height: max-content;
+  }
+
+  .profile__info{
+    height: max-content;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .profile__card__item{
+    overflow: hidden;
+  }
+
+  .profile__content{
+    min-height: 50px;
+    height: max-content;
+    padding: 3px 0;
+  }
+
+  .profile__content__title{
+    width: 200px;
   }
 }

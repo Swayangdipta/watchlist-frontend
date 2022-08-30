@@ -4,12 +4,14 @@ import { ContentContext } from '../ContentContext'
 const Analytics = () => {
     const [contents,setContents] = useContext(ContentContext)
     const [totalWatchTime,setTotalWatchTime] = useState(0)
+    const [totalEpisodes,setTotalEpisodes] = useState(0)
     const [timeInHours,setTimeInHours] = useState(0)
     const [remMin,setRemMin] = useState(0)
     const [timeInDays,setTimeInDays] = useState(0)
 
     useEffect(()=>{
         setTotalWatchTime(0)
+        setTotalEpisodes(0)
         let averageTime = 0;
         if(contents.length > 0) {
             contents.map(elm => {
@@ -24,8 +26,10 @@ const Analytics = () => {
                     }else{
                         setTotalWatchTime(prev => prev + ((elm.content.episode_run_time[0] * elm.content.number_of_episodes) - 4) )
                     }
+                    setTotalEpisodes(prev => prev+elm.content.number_of_episodes)
                 }else{
                     setTotalWatchTime(prev => prev + (elm.content.runtime - 4))
+                    setTotalEpisodes(prev => prev+1)
                 }
             })
         }
@@ -35,14 +39,6 @@ const Analytics = () => {
         setTimeInHours(0)
         setRemMin(0)
         setTimeInDays(0)
-        // if(totalWatchTime > 1439){
-        //     let days = Math.floor(totalWatchTime/60/24)
-        //     let hour = Math.floor(totalWatchTime / 60 % 24)
-        //     let remainingMinutes = totalWatchTime % 60
-        //     setTimeInHours(hour)
-        //     setRemMin(remainingMinutes)
-        //     setTimeInDays(days)
-        // }else 3
         if(totalWatchTime > 60){
             let hour = Math.floor(totalWatchTime/60)
             let remainingMinutes = totalWatchTime % 60
@@ -67,14 +63,39 @@ const Analytics = () => {
     }
       
     useEffect(()=>{
+        if(contents.length > 0){
+            const obj = document.getElementById("value0");
+            animateValue(obj, 0, contents.length, 3000);            
+        }
+    },[contents.length])
+
+    useEffect(()=>{
         if(timeInHours > 0){
             const obj = document.getElementById("value2");
-            animateValue(obj, 0, timeInHours, 4000);            
+            animateValue(obj, 0, timeInHours, 5000);            
         }
     },[timeInHours])
 
+    useEffect(()=>{
+        if(totalEpisodes > 0){
+            const obj = document.getElementById("value3");
+            animateValue(obj, 0, totalEpisodes, 5000);            
+        }
+    },[totalEpisodes])
+
   return (
     <div className="analytics">
+        <div className='watchtime watchtimeVw'>
+            <div className='watchTime__title'>
+                <div>Viewed</div>
+            </div>
+            <div className="watchTimeCircle watchTimeCircleVw"></div>
+            <div className='watchTime__times watchTime__episodes'>
+                <div  id='value0'>{contents.length}</div>
+                <div>Contents</div>
+            </div>
+        </div> 
+
         <div className='watchtime'>
             <div className='watchTime__title'>
                 <div>Watch</div>
@@ -86,50 +107,17 @@ const Analytics = () => {
                 <div>Hours</div>
             </div>
         </div>        
-        <div className='watchtime'>
+
+        <div className='watchtime watchtimeEp'>
             <div className='watchTime__title'>
-                <div>Watch</div>
-                <div>Time</div>
+                <div>Total</div>
             </div>
-            <div className="watchTimeCircle"></div>
-            <div className='watchTime__times'>
-                <div  id='value2'>{timeInHours}</div>
-                <div>Hours</div>
+            <div className="watchTimeCircle watchTimeCircleEp"></div>
+            <div className='watchTime__times watchTime__episodes'>
+                <div  id='value3'>{totalEpisodes}</div>
+                <div>Episodes</div>
             </div>
-        </div>        
-        <div className='watchtime'>
-            <div className='watchTime__title'>
-                <div>Watch</div>
-                <div>Time</div>
-            </div>
-            <div className="watchTimeCircle"></div>
-            <div className='watchTime__times'>
-                <div  id='value2'>{timeInHours}</div>
-                <div>Hours</div>
-            </div>
-        </div>        
-        <div className='watchtime'>
-            <div className='watchTime__title'>
-                <div>Watch</div>
-                <div>Time</div>
-            </div>
-            <div className="watchTimeCircle"></div>
-            <div className='watchTime__times'>
-                <div  id='value2'>{timeInHours}</div>
-                <div>Hours</div>
-            </div>
-        </div>        
-        <div className='watchtime'>
-            <div className='watchTime__title'>
-                <div>Watch</div>
-                <div>Time</div>
-            </div>
-            <div className="watchTimeCircle"></div>
-            <div className='watchTime__times'>
-                <div  id='value2'>{timeInHours}</div>
-                <div>Hours</div>
-            </div>
-        </div>        
+        </div>             
     </div>
   )
 }

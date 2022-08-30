@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Header from '../Core/Header'
 import Analytics from './Analytics'
 import ProfileCard from './ProfileCard'
+import ProfileContents from './ProfileContents'
 
 const Profile = () => {
 
@@ -12,7 +13,8 @@ const Profile = () => {
     <div className='profile__container'>
         <Header location="profile" />
         <Analytics />
-        {/* <ProfileCard /> */}
+        <ProfileCard />
+        <ProfileContents />
     </div>
   )
 }

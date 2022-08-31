@@ -56,7 +56,7 @@ const AllContents = () => {
       }
         {
             contents.length > 0 && contents.map((content,index) => (
-              <ContentCard key={index} content={content.content} model={content.model} index={index} />
+              <ContentCard location="home" key={index} content={content.content} model={content.model} index={index} />
             ))
         }
     </div>

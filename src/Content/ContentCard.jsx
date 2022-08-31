@@ -4,7 +4,7 @@ import {BiLinkExternal} from 'react-icons/bi'
 import FullContentView from './FullContentView';
 
 
-const ContentCard = ({content,model,status="Completed",index}) => {
+const ContentCard = ({content,model,status="Completed",index,location="home"}) => {
 
     const [statusColor ,setStatusColor] = useState("Green");
     const [isEditOpen ,setIsEditOpen] = useState(false);
@@ -33,7 +33,7 @@ const ContentCard = ({content,model,status="Completed",index}) => {
 
   return (
     <>
-        <div onClick={e=>setIsEditOpen(true)} className='content__card__wrapper' >
+        <div onClick={e=> location === "home" && setIsEditOpen(true)} className='content__card__wrapper' >
             <div className="content__card__status">
                 <div style={{background: statusColor,boxShadow: `0px 0px 12px ${statusColor},0px 0px 0px 7px #191a1c`}} className="card__status__indicator"></div>
             </div>
@@ -41,7 +41,7 @@ const ContentCard = ({content,model,status="Completed",index}) => {
             <p className="content__title">{content?.name ? content?.name : model?.title}</p>
         </div>
         {
-            isEditOpen && (<FullContentView reloadColor={reloadColor} setReloadColor={setReloadColor} model={model} content={content} status={status} setOpen={setIsEditOpen} />)
+            isEditOpen && location === "home" && (<FullContentView location={location} reloadColor={reloadColor} setReloadColor={setReloadColor} model={model} content={content} status={status} setOpen={setIsEditOpen} />)
         }
     </>
   )

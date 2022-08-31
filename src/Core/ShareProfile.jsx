@@ -11,9 +11,9 @@ const ShareProfile = () => {
     <div className='shareProfile'>
         <p className="shareTitle">Share profile</p>
         <p className="shareLink">
-            http://localhost:3000/user/{user._id}
+        https://iwatchedit.netlify.app/user/{user._id}
         </p>
-        <CopyToClipboard onCopy={() => setCopied(true)} text={`http://localhost:3000/user/${user._id}`}>
+        <CopyToClipboard onCopy={() => setCopied(true)} text={`https://iwatchedit.netlify.app/user/${user._id}`}>
             {
                 copied ? (<p className='copyLink'>Copied <TiTick /></p>) : (<p className='copyLink'>Copy <AiFillCopy /></p>)
             }            

@@ -3,9 +3,9 @@ import {BiLoaderCircle} from 'react-icons/bi'
 import {Navigate} from 'react-router-dom'
 import { authenticate, isAuthenticated, loginUser, registerUser } from './helper/authApiCalls';
 import {toast} from 'react-toastify'
+import {AiFillCloseCircle} from 'react-icons/ai'
 
-
-const Auth = ({type="login"}) => {
+const Auth = ({type="login",setOpenForm=f=>f}) => {
 
   const [checkPassword,setCheckPassword] = useState(true);
   const [isLoading,setIsLoading] = useState(false);
@@ -148,6 +148,7 @@ const handleChange = inp => e => {
         isRedirected && (<Navigate to="/home" />)
       }
       <div className="auth__form__container content__form__wrapper">
+      <div className="closeAuthForm" onClick={e=>setOpenForm(false)}><AiFillCloseCircle /></div>
       <div className="content__form__kinda__header"></div>
       <h2 className="create__content__title">{internalFormType === 'login' ? ("Login") : ("Register")}</h2>
         <form className="auth__form content__form">

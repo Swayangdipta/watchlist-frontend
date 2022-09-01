@@ -20,6 +20,7 @@ const Menu = ({location}) => {
                let willRedirect =  removeUserClient();
                if(willRedirect){
                 setRedirect(true)
+                setLoading(false)
                }
             }
         })
@@ -32,8 +33,8 @@ const Menu = ({location}) => {
     }
     <div className="menu__container">
         <div className="menu__item" onClick={e=>setOpenForm(true)}>New Content</div>
-        {location === "home" && (<Link to="/profile"><div className="menu__item">Profile</div></Link>)}
-        {location === "profile" && (<Link to="/home"><div className="menu__item">Home</div></Link>)}
+        {(location === "profile" || location === "landing") && (<Link to="/home"><div className="menu__item">Home</div></Link>)}
+        {(location === "home" || location === "landing") && (<Link to="/profile"><div className="menu__item">Profile</div></Link>)}
         <div className="menu__item" onClick={handleLogout}>Logout</div>
     </div>
     {
